@@ -52,7 +52,7 @@ const HomePage = () => {
   return (
     <Box sx={{ flexGrow: 1, py: 4, px: { xs: 2, md: 4 } }}>
       <Typography
-        variant="h3"
+        variant="h4"
         component="h1"
         align="center"
         gutterBottom

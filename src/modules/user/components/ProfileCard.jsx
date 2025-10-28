@@ -48,7 +48,6 @@ const ProfileCard = () => {
             }}
           />
 
-          {/* Info */}
           <Box sx={{ flex: 1 }}>
             <Typography
               variant="h5"

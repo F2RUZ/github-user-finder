@@ -2,7 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchUser } from "../api/user.api";
 import { getCache, setCache } from "../../../services/cacheService";
 
-// Foydalanuvchi ma'lumotlarini (profil) olish uchun async thunk.
 
 export const fetchUserThunk = createAsyncThunk(
   "user/fetchUser",

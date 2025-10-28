@@ -5,7 +5,6 @@ import { getCache, setCache } from "../../../services/cacheService";
 export const fetchReposThunk = createAsyncThunk(
   "repo/fetchRepos",
   async ({ username, page = 1 }, { getState, rejectWithValue }) => {
-    // Faqat birinchi sahifani (page=1) cache qilamiz
     if (page === 1) {
       const cacheKey = `repos_${username}_page_${page}`;
       const cachedData = getCache(cacheKey);

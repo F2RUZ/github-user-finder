@@ -1,5 +1,5 @@
 const CACHE_PREFIX = "github_finder_cache_";
-const CACHE_EXPIRY_MS = 60 * 60 * 1000; // 1 soat
+const CACHE_EXPIRY_MS = 60 * 60 * 1000; 
 
 export const getCache = (key) => {
   try {
@@ -10,7 +10,7 @@ export const getCache = (key) => {
     const now = Date.now();
 
     if (now - timestamp > CACHE_EXPIRY_MS) {
-      localStorage.removeItem(CACHE_PREFIX + key); // Muddat tugagan
+      localStorage.removeItem(CACHE_PREFIX + key); 
       return null;
     }
 

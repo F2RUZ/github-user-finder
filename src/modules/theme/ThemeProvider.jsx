@@ -6,18 +6,15 @@ import {
 } from "@mui/material";
 import { lightPalette, darkPalette } from "./palette";
 
-// Context yaratish
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 export const useColorMode = () => useContext(ColorModeContext);
 
 const ThemeProvider = ({ children }) => {
-  // Boshlang'ich holat
   const [mode, setMode] = useState("light");
 
   const colorMode = useMemo(
     () => ({
-      // Theme toggling funksiyasi
       toggleColorMode: () => {
         setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
       },
@@ -26,7 +23,6 @@ const ThemeProvider = ({ children }) => {
     [mode]
   );
 
-  // Theme obyektini yaratish
   const theme = useMemo(
     () =>
       createTheme({

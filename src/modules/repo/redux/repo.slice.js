@@ -14,7 +14,6 @@ const repoSlice = createSlice({
   name: "repo",
   initialState,
   reducers: {
-    // Repositoriya ro'yxatini tozalash
     clearRepos: (state) => {
       state.data = [];
       state.status = "idle";
@@ -27,7 +26,6 @@ const repoSlice = createSlice({
     builder
       .addCase(fetchReposThunk.pending, (state, action) => {
         state.status = "loading";
-        // Faqat birinchi sahifa yuklanayotganda oldingi ma'lumotlarni o'chirish
         if (action.meta.arg.page === 1) {
           state.data = [];
           state.page = 1;
@@ -46,7 +44,6 @@ const repoSlice = createSlice({
         state.data = [];
         state.hasMore = false;
       })
-      // Foydalanuvchi ma'lumotlari o'chirilganda repositoriyalarni ham tozalash
       .addCase(clearUser, (state) => {
         Object.assign(state, initialState);
       });

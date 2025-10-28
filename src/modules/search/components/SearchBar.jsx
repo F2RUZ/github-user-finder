@@ -9,32 +9,27 @@ import { clearUser } from "../../user/redux/user.slice";
 
 const SearchBar = () => {
   const [input, setInput] = useState("");
-  const debouncedInput = useDebounce(input, 600); // 600ms debounce
+  const debouncedInput = useDebounce(input, 600); 
 
   const dispatch = useAppDispatch();
   const userStatus = useAppSelector((state) => state.user.status);
-  const currentLogin = useAppSelector((state) => state.user.data?.login); // Hook komponent tanasiga ko'chirildi
+  const currentLogin = useAppSelector((state) => state.user.data?.login);
 
   const isLoading = userStatus === "loading";
 
-  // Debounced input o'zgarganda qidiruvni ishga tushirish
   useEffect(() => {
     if (debouncedInput && debouncedInput.length >= 2) {
       handleSearch(debouncedInput.trim());
     }
 
     if (!debouncedInput) {
-      // Input bo'sh bo'lsa profillarni tozalash
       dispatch(clearUser());
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedInput]);
 
   const handleSearch = (usernameToSearch) => {
-    // Endi hook emas, komponent tanasida olingan qiymat ishlatiladi (currentLogin)
     if (usernameToSearch && usernameToSearch !== currentLogin) {
-      // User va Repositoriyalarni parallel ravishda chaqirish
       dispatch(fetchUserThunk(usernameToSearch));
       dispatch(fetchReposThunk({ username: usernameToSearch, page: 1 }));
     }

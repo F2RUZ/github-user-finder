@@ -11,7 +11,6 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    // Foydalanuvchi ma'lumotlarini tozalaydi
 
     clearUser: (state) => {
       state.data = null;
@@ -22,7 +21,6 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder
 
-      //Ma'lumotlar yuklanmoqda holati
 
       .addCase(fetchUserThunk.pending, (state) => {
         state.status = "loading";

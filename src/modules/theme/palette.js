@@ -1,6 +1,5 @@
 import { blue, grey } from "@mui/material/colors";
 
-// Asosiy rang palitralari
 export const lightPalette = {
   primary: {
     main: blue[600],
@@ -26,7 +25,7 @@ export const darkPalette = {
     main: grey[300],
   },
   background: {
-    default: "#121212",
-    paper: "#1E1E1E",
+    default: "#070912ff",
+    paper: "#0b1124ff",
   },
 };

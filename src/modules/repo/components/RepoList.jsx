@@ -15,7 +15,6 @@ const RepoList = () => {
   const username = useAppSelector((state) => state.user.data?.login);
   const dispatch = useAppDispatch();
 
-  // Observerni sozlash
   const observer = useRef();
   const lastRepoElementRef = useCallback(
     (node) => {
@@ -24,7 +23,6 @@ const RepoList = () => {
 
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore && username) {
-          // Keyingi sahifani yuklash
           dispatch(fetchReposThunk({ username, page: page + 1 }));
         }
       });
@@ -44,7 +42,6 @@ const RepoList = () => {
     );
   }
 
-  // Faqat Repolarning o'zi yuklanayotgan bo'lsa va ro'yxatda narsa bo'lsa
   const isLoadingMore = status === "loading" && repos.length > 0;
 
   return (
@@ -52,7 +49,6 @@ const RepoList = () => {
       <List>
         {repos.map((repo, index) => {
           if (repos.length === index + 1) {
-            // Ro'yxatdagi oxirgi elementga ref biriktirish
             return (
               <RepoItem ref={lastRepoElementRef} key={repo.id} repo={repo} />
             );
