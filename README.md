@@ -2,11 +2,9 @@
 
 **GitHub User Finder** — bu Vite + React + Redux Toolkit + MUI (Material UI) asosidagi kichik lekin production-ga yaqin test loyihadir. Loyihaning maqsadi: foydalanuvchi GitHub username'ini kiritsa, uning profil va public repositorylarini chiroyli, responsiv interfeysda ko‘rsatish.
 
-> Til: **O‘zbekcha (Latin)**
 
----
 
-## 🚀 Umumiy ma'lumot (TZ uslubida)
+
 
 **Ma'lumot:** Loyihaning asosiy vazifasi — GitHub API (`https://api.github.com`) orqali foydalanuvchi ma'lumotlarini olish va ularni UI orqali ko‘rsatish.
 
@@ -75,7 +73,7 @@ Har bir modul (feature) `api`, `redux` (slice + thunks), `components` va `hooks`
 
 ---
 
-## 📦 O‘rnatish va ishga tushirish
+## O‘rnatish va ishga tushirish
 
 **Prerequisites:**
 
@@ -85,7 +83,7 @@ Har bir modul (feature) `api`, `redux` (slice + thunks), `components` va `hooks`
 **1) Repository klonlash**
 
 ```bash
-git clone https://github.com/<your-username>/github-user-finder.git
+git clone https://github.com/f2ruz/github-user-finder.git
 cd github-user-finder
 ```
 
@@ -131,27 +129,7 @@ npm run serve
 
 ---
 
-## ⚙️ Nega `node_modules` ni o‘chirib qayta o‘rnatish kerak bo‘ladi?
 
-Agar `npm run dev`da `spawn` yoki `EAGAIN` xatolari bo‘lsa (resource/fork limit), quyidagilarni sinang:
-
-```bash
-# terminalni qayta ochish yoki system processlarini tozalash
-# node processlarni olib tashlash (iga ehtiyotkorlik bilan)
-ps aux | grep node
-kill -9 <PID>
-
-# keyin
-rm -rf node_modules package-lock.json
-npm install
-```
-
-Agar MacOS bo‘lsa va `fork failed` chiqsa, `ulimit` qiymatlarini oshirish ham yordam beradi:
-
-```bash
-ulimit -n 4096
-ulimit -u 2048
-```
 
 ---
 
@@ -199,13 +177,7 @@ const { data: userData, status } = useAppSelector(state => state.user)
 console.log('userData', userData, status)
 ```
 
-**Tez-tez uchraydigan muammolar**:
 
-* Ma’lumot keladi console’da, ammo UI’da chiqmaydi → ko‘pincha conditional rendering shartlari (`showProfile`) noto‘g‘ri.
-* MUI Grid warnings (`xs`, `sm` removed) → MUI v6 uchun `Stack` yoki v2 Grid API ga moslash kerak.
-* `EAGAIN` yoki `spawn sh` → terminal/OS resurs muammosi (yuqoridagi ulimit yoki node kill yordam beradi).
-
----
 
 ## 🧭 Design & Implementation notes
 
@@ -225,21 +197,3 @@ Yuqoridagi `build` ni ishga tushirib, hosil bo‘lgan `dist/` papkani GitHub Pag
 1. Vercel CLI o‘rnatish: `npm i -g vercel`
 2. Deploy: `vercel --prod`
 
----
-
-## 📌 Qo‘shimcha maslahatlar (TZ ga mos)
-
-* Kodni modulga bo‘lishda `index.js` barrel exportlardan foydalaning.
-* Har bir modul uchun `README.md` qisqacha dokumentatsiya yozing.
-* Commit messages: `feat`, `fix`, `chore` konventsiyasini ishlating.
-
----
-
-## 📫 Aloqa
-
-
----
-
-Omad! 🚀
-
-*README ushbu loyiha uchun umumiy yo‘l-yo‘riq va setup bo‘yicha to‘liq ma'lumot beradi. Agar xohlasangiz, men README'ni GitHub ga commit qilish uchun `.md` fayl sifatida tayyorlab bera olaman.*
